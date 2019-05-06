@@ -1,0 +1,44 @@
+package windows;
+import java.awt.*;
+import javax.swing.*;
+import org.jvnet.lafwidget.*;
+import org.jvnet.lafwidget.tabbed.*;
+import org.jvnet.substance.*;
+import org.jvnet.substance.theme.*;
+public class TPview extends JFrame  {
+	 public TPview() {
+		    super("Przegl¹d zak³adek");
+
+		    Color[] c = { Color.BLUE, Color.RED, Color.YELLOW };
+
+		    JTabbedPane tp = new JTabbedPane();
+		    for (int i = 0; i < c.length; i++) {
+		      JPanel p = new JPanel();
+		      p.setBackground(c[i]);
+		      int n = i + 1;
+		      p.add(new JButton("Przycisk " + n));
+		      tp.add("Tab " + n, p);
+		    }
+
+		    add(tp, BorderLayout.CENTER);
+
+		    // Ustalenie podgl¹du zak³adek
+		    tp.putClientProperty(LafWidget.TABBED_PANE_PREVIEW_PAINTER,
+		        new DefaultTabPreviewPainter());
+
+		    setSize(500, 300);
+		    setLocationRelativeTo(null);
+		    setDefaultCloseOperation(EXIT_ON_CLOSE);
+		    setVisible(true);
+		  }
+
+		  public static void main(String[] args) throws Exception {
+		    UIManager.setLookAndFeel(new SubstanceLookAndFeel());
+		    SubstanceLookAndFeel.setCurrentTheme(new SubstanceSteelBlueTheme());
+		     SwingUtilities.invokeLater( new Runnable() {
+		        public void run() {
+		         new TPview();
+		        }
+		     });
+		  }
+}

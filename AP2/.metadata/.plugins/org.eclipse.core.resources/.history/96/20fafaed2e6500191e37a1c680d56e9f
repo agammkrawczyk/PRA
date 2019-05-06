@@ -1,0 +1,57 @@
+/**
+ *
+ *  @author KRAWCZYK AGNIESZKA PD2914
+ *
+ */
+
+package zad2;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.border.*; 
+import javax.swing.*;
+public class Main {
+
+  public static void main(String[] args) {
+	  
+	  class guzik extends JFrame {
+		    JButton button;
+		    int colorKey = 0;
+		    public Color[] colors = new Color[] { Color.CYAN, Color.BLACK, Color.BLUE, Color.DARK_GRAY, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+		
+		    guzik() {
+		        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        setPreferredSize(new Dimension(200, 100));
+		        setLocation(200, 200);
+		
+		        button = new JButton("Klik!");
+		        
+		
+		        button.addActionListener(new ActionListener() {
+		            @Override
+		
+		            public void actionPerformed(ActionEvent e) {
+		                if (colorKey >= colors.length) {
+		                    colorKey = 0;
+		                }
+	              button.setBackground(colors[colorKey]);
+		                colorKey++;
+		            }
+		        });
+		        add(button);
+		
+		        pack();
+		        setVisible(true);
+		    }}
+	
+	      SwingUtilities.invokeLater(new Runnable() {
+	          public void run() {
+	              new guzik();
+	          }
+	      });
+	  }
+}  
+	  
+	 
+

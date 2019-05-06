@@ -1,0 +1,14 @@
+/**
+ *
+ *  @author KRAWCZYK AGNIESZKA PD2914
+ *
+ */
+
+package zad3;
+import java.awt.*;
+import javax.swing.*;
+
+public class Main {
+
+  
+}

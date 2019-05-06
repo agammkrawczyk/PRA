@@ -1,0 +1,59 @@
+package windows;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Akcja  extends JFrame {
+	JTextArea ta = new JTextArea(10, 20);
+	  JScrollPane sp = new JScrollPane(ta);
+
+	  Action newAct = new AbstractAction("New", new ImageIcon("arrow1.gif")) {
+	    public void actionPerformed(ActionEvent e) {
+	      newFile();
+	    }
+	  };
+
+	  Action openAct = new AbstractAction("Open", new ImageIcon("arrow2.gif")) {
+	    public void actionPerformed(ActionEvent e) {
+	      openFile();
+	    }
+	  };
+
+	  JPopupMenu popup = new JPopupMenu();
+
+	  public Akcja() {
+	    JToolBar tb = new JToolBar();
+	    JMenu menu = new JMenu("File");
+	    tb.add(newAct);
+	    tb.add(openAct);
+	    menu.add(newAct);
+	    menu.add(openAct);
+	    popup.add(newAct);
+	    popup.add(openAct);
+	    ta.setComponentPopupMenu(popup);
+	    JMenuBar mb = new JMenuBar();
+	    mb.add(menu);
+	    setJMenuBar(mb);
+	    add(tb, "North");
+	    add(sp);
+	    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	    pack();
+	    setLocationRelativeTo(null);
+	    setVisible(true);
+	  }
+
+	  private void newFile() {
+	    // utworzenie pliku
+	  }
+
+	  private void openFile() {
+	    // otwarcie pliku    
+	  }
+
+	  public static void main(String[] args) {
+	     SwingUtilities.invokeLater(new Runnable() {
+	      public void run() {
+	       new Akcja();
+	      }
+	    });
+	  }
+}

@@ -1,0 +1,58 @@
+/**
+ *
+ *  @author KRAWCZYK AGNIESZKA PD2914
+ *
+ */
+
+package zad2;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+public class Main {
+
+  public static void main(String[] args) {
+	  
+	  class ColorButton extends JFrame {
+		    JButton button;
+		    int licznik= 0;
+		    Color kolorTla[] = {Color.BLUE, Color.GREEN,Color.gray,Color.CYAN, Color.ORANGE} ;	
+		   String kolorNapis[]= {"Blue","Green","Grey","Cyan","Orange"};
+		    
+		   ColorButton() {
+		        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        setPreferredSize(new Dimension(500, 500));
+		        setLocation(200, 200);
+
+		        button = new JButton("Start !!!");
+		        button.setFont(new Font("Dialog", Font.BOLD, 100)); 		
+		        button.addActionListener(new ActionListener() {
+		        	
+		            @Override
+				            public void actionPerformed(ActionEvent e) {
+		                if (licznik >= kolorTla.length) {
+		                    licznik = 0;
+		                }
+	              button.setBackground(kolorTla[licznik]);
+		               button.setText(kolorNapis[licznik]);  
+		               licznik++;
+		               
+		            }
+		        });
+		        add(button);
+		
+		        pack();
+		        setVisible(true);
+		    }}
+	
+	      SwingUtilities.invokeLater(new Runnable() {
+	          public void run() {
+	              new ColorButton();
+	          }
+	      });
+	  }
+}  
+	  
+	 
+

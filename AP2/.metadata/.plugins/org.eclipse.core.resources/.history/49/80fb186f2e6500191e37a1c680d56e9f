@@ -1,0 +1,45 @@
+/**
+ *
+ *  @author KRAWCZYK AGNIESZKA PD2914
+ *
+ */
+
+package zad2;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.border.*; 
+import javax.swing.*;
+public class Main {
+
+  public static void main(String[] args) {
+	  
+	  String title="KOLORY";
+	  LayoutManager lm = new BorderLayout();
+	  JPanel panel = new JPanel();
+      panel.setBackground(Color.white);
+      panel.setPreferredSize(new Dimension(500,500));
+      panel.setBorder(BorderFactory.createTitledBorder(title)); 
+      panel.setLayout(lm); 
+	  
+	  JFrame f = new JFrame(); 
+	     f.setDefaultCloseOperation(3); 
+	     f.setPreferredSize(new Dimension(500,500));
+	     JButton b = new JButton("Zrób coœ"); 
+	     b.setFont(new Font("Dialog", Font.BOLD, 16)); 
+	     b.setForeground(Color.red); 
+	     b.setOpaque(false); 
+	     b.setBounds(100,100, 100, 100); 
+
+	     Border rbevel = BorderFactory.createRaisedBevelBorder(), 
+	            lbevel = BorderFactory.createLoweredBevelBorder(); 
+
+	     
+
+	      b.setBorder(BorderFactory.createCompoundBorder(rbevel,lbevel)); 
+	     f.getLayeredPane().add(b); 
+	     f.pack(); 
+	     f.setVisible(true); 
+	    } 
+}

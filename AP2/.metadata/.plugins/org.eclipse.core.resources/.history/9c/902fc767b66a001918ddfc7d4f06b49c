@@ -1,0 +1,22 @@
+package zad3;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JMenuItem;
+import javax.swing.JTextArea;
+
+public class ListBackground implements ActionListener {
+	protected JTextArea support;
+	
+    public ListBackground(JTextArea handler) {
+        this.support = support;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JMenuItem item = (JMenuItem) e.getSource();
+        MyIcon icon = (MyIcon) item.getIcon();
+        support.setBackground(icon.getColor());
+    }
+}
